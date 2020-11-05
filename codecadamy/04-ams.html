@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<!-- https://www.codecademy.com/courses/learn-a-frame/lessons/a-frame-building-the-scene/exercises/asset-management-system -->
+
+<head>
+  <meta charset="utf-8" />
+  <title>AMS</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+
+<body>
+
+  <a-scene background="color: pink">
+    <!-- Write your code below: -->
+    <a-assets>
+      <img id="stones" src="https://i.imgur.com/mYmmbrp.jpg">
+    </a-assets>
+    <a-box src="#stones" position="0 2 -5" rotation="0 45 45">
+    </a-box>
+  </a-scene>
+</body>
+
+</html>

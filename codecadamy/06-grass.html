@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<!-- https://www.codecademy.com/courses/learn-a-frame/lessons/a-frame-building-the-scene/exercises/asset-management-system -->
+
+<head>
+  <meta charset="utf-8" />
+  <title>AMS</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-assets>
+      <img id="sky" src="https://cdn.glitch.com/6d6bb755-bc28-4d87-80c2-5267d673335e%2Fmountains2.jpg?v=1604437123888">
+      <!-- Add texture here: -->
+      <img id="grass" src="https://cdn.glitch.com/6d6bb755-bc28-4d87-80c2-5267d673335e%2Fgrass1.jpg?v=1604437767556">
+    </a-assets>
+
+    <a-sky src="#sky"></a-sky>
+    <!-- Add primitive here: -->
+    <a-plane src="#grass" rotation="-90 0 0" width="20" height="20" repeat="10 10">
+
+    </a-plane>
+
+  </a-scene>
+</body>
+
+</html>
