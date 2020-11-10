@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<!-- https://aframe.io/aframe-school/#/7/1 -->
+  <head>
+    <title>ECS - A-Frame School</title>
+    <meta name="description" content="ECS - A-Frame School" />
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <!-- aframe-animation-component -->
+    <script src="https://unpkg.com/aframe-animation-component@%5E3.2.x/dist/aframe-animation-component.min.js"></script>
+    <!-- aframe-particle-system-component -->
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <!-- A-Frame Outline component -->
+    <script src="https://rawgit.com/takahirox/aframe-outline/master/build/aframe-outline.min.js"></script>
+
+
+  </head>
+  <body>
+    <a-scene outline>
+      <a-assets>
+        <img id="groundTexture" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png">
+      </a-assets>
+      <a-entity particle-system="preset: snow; particleCount: 10000; size:2"></a-entity>
+      <a-entity particle-system="preset:default; color:#0000FF,#FF0000; particleCount:1000" position="0 0 -5"></a-entity>
+
+<!-- START coord -->
+<!-- x -->
+<a-entity
+  scale="0.3 0.3 0.3"
+  position="0 0 -2"
+>
+      <a-entity
+        geometry="primitive: box; width:10; height:0.1; depth:0.1"
+        material="color: red"
+        position="0 0 0"
+      ></a-entity>
+      <a-entity
+        geometry="primitive: cone; radiusBottom: 0.3; radiusTop: 0.01"
+        rotation="0 0 -90"
+        material="color: red"
+        position="5 0 0"
+      ></a-entity>
+
+<!-- y -->
+    <a-entity
+      geometry="primitive: box; width:0.1; height:0.1; depth:10"
+      material="color: green"
+      position="0 0 0"
+    ></a-entity>
+    <a-entity
+      geometry="primitive: cone; radiusBottom: 0.3; radiusTop: 0.01"
+      rotation="90 0 0"
+      material="color: green"
+      position="0 0 5"
+    ></a-entity>
+
+<!-- z -->
+    <a-entity
+      geometry="primitive: box; width:0.1; height:10; depth:0.1"
+      material="color: blue"
+      position="0 0 0"
+    ></a-entity>
+    <a-entity
+      geometry="primitive: cone; radiusBottom: 0.3; radiusTop: 0.01"
+      rotation="0 0 0"
+      material="color: blue"
+      position="0 5 0"
+    ></a-entity>
+</a-entity>
+<!-- END coord -->
+
+
+<a-entity id="box" geometry="primitive: box; width: 1; depth: 1; height: 1" position="-1 0.5 -3" material="color: #4CC3D9"></a-entity>
+  <a-entity id="sphere" geometry="primitive: sphere; radius: 1.25" material="color: #EF2D5E" position="0 1.25 -5" animation="property: scale; dir: alternate; dur: 100; to: 1.1 1.1 1.1; loop: true"></a-entity>
+  <a-entity id="cylinder" geometry="primitive: cylinder; radius: 0.5; height: 1.5" position="1 0.75 -3" material="color: #FFC65D"></a-entity>
+
+  <a-entity id="plane" geometry="primitive: plane; width: 10000; height: 10000" material="color: #333; src: #groundTexture; repeat: 10000 10000; transparent: true; metalness: 0.6; roughness: 0.4" rotation="-90 0 0"></a-entity>
+  <a-entity id="sky" geometry="primitive: sphere; radius: 100" material="color: #000; shader: flat; side: back"></a-entity>
+  <a-entity light="type: ambient; color: #444"></a-entity>
+  <a-entity light="type: directional; color: #AAA" position="-1 2 0"></a-entity>
+    </a-scene>
+  </body>
+</html>

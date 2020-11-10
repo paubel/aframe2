@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <title>Registry - A-Frame School</title>
+    <meta name="description" content="Registry - A-Frame School" />
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-outline@%5E1.1.0/build/aframe-outline.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%7CRoboto+Mono" media="all" /></head>
+  <body class="a-body ">
+    <a-scene outline="" class="fullscreen" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui=""><canvas class="a-canvas" data-aframe-canvas="true" width="600" height="300"></canvas>
+      <a-assets>
+
+      <img id="groundTexture" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" crossorigin="anonymous"></a-assets>
+
+
+      <a-entity particle-system="preset:snow;particleCount:10000"></a-entity>
+      <a-entity particle-system="preset:default;color:#515;particleCount:1000" position="0 0 -5"></a-entity>
+
+      <a-entity id="sphere" geometry="primitive:sphere;radius:1.25" material="color:#EF2D5E" position="0 1.25 -5" animation="dir:alternate;dur:100;loop:true;property:scale;to:1.1 1.1 1.1" scale="1.044440888960001 1.044440888960001 1.044440888960001"></a-entity>
+      <a-entity id="box" geometry="" position="-1 0.5 -3" material="color:#4CC3D9"></a-entity>
+      <a-entity id="cylinder" geometry="primitive:cylinder;height:1.5;radius:0.5" position="1 0.75 -3" material="color:#FFC65D"></a-entity>
+
+      <a-entity id="plane" geometry="primitive:plane;height:10000;width:10000" material="repeat:10000 10000;transparent:true;color:#333;metalness:0.6;roughness:0.4;src:[object HTMLImageElement]" rotation="-90 0 0"></a-entity>
+      <a-entity id="sky" geometry="primitive:sphere;radius:100" material="shader:flat;side:back;color:#666"></a-entity>
+      <a-entity light="color:#444;type:ambient"></a-entity>
+      <a-entity light="color:#AAA" position="-1 2 0"></a-entity>
+    </a-scene>
+
+<div id="pouch-root"></div></body></html>
