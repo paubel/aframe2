@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <!-- https://aframe.io/aframe-school/#/7/1 -->
+  <head>
+    <title>Merry Xmas from Belfrage</title>
+    <meta name="description" content="Merry Xmas from Belfrage" />
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <!-- aframe-animation-component -->
+    <!--<script src="https://unpkg.com/aframe-animation-component@%5E3.2.x/dist/aframe-animation-component.min.js"></script>-->
+    <!-- aframe-particle-system-component -->
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+    <script id="circleforest" type="text/html">
+        <a-obj-model
+        src="#forest-obj"
+        mtl="#forest-mtl"
+        position="0 0 0"
+        scale="6 6 6"
+      ></a-obj-model>
+    </script>
+    <script>
+        AFRAME.registerComponent('audiohandler', {
+      init: function() {
+        let playing = false;
+        let audio = document.querySelector("#neigh");
+        this.el.addEventListener('click', () => {
+          if (!playing) {
+            audio.play();
+          } else {
+            audio.pause();
+            audio.currentTime = 0;
+          }
+          playing = !playing;
+        });
+      }
+    })
+    </script>
+
+    <script >
+          AFRAME.registerComponent('boom-ani', {
+        init: function () {
+        var bouncing = false;
+          document.addEventListener('click', function () {
+          	bouncing = !bouncing;
+            var el = document.querySelector('#ball');
+          	el.emit(bouncing ? 'bounce-start' : 'bounce-stop');
+          });
+        }
+        });
+    </script>
+  </head>
+  <body>
+    <a-scene school-playground cursor="rayOrigin:mouse">
+      <a-assets>
+        <img id="displacement" src="snow/snow_02_disp_1k.jpg">
+        <img id="normalmap" src="snow/snow_02_nor_1k.jpg">
+        <a-asset-item id="snowman" src="snowman/model.gltf"></a-asset-item>
+        <a-asset-item id="presents" src="presents/model.gltf"></a-asset-item>
+        <a-asset-item id="santa" src="santa/model.gltf"></a-asset-item>
+        <a-asset-item id="christmastree" src="christmastree/christmastree.gltf"></a-asset-item>
+
+        <a-asset-item id="boombox-obj" src="gram/model.obj"></a-asset-item>
+        <a-asset-item id="boombox-mtl" src="gram/materials.mtl"></a-asset-item>
+       <!--<a-asset-item id="boom" src="boom-gltf/model.gltf"></a-asset-item>-->
+        <a-asset-item id="forest-obj" src="forestobj/PUSHILIN_forest.obj"></a-asset-item>
+        <a-asset-item id="forest-mtl" src="forestobj/PUSHILIN_forest.mtl"></a-asset-item>
+
+        <!--<audio
+          id="background"
+          src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav"
+        ></audio>-->
+      </a-assets>
+
+      <a-sky
+        src="https://cdn.glitch.com/3bea33eb-bc48-4167-81d2-04a68b27c82a%2Fstars2.jpg?v=1605366060804"
+      ></a-sky>
+
+      <a-entity
+        particle-system="preset: snow; particleCount: 10000; size:1"
+      ></a-entity>
+
+      <a-text
+        text="font: mozillavr; align: center; width: 4; color: red; value:Merry Christmas from the Belfrage family"
+        position="0.2 4 -3.5"
+        scale="2 2 2"
+        animation="property: object3D.position.x;
+        to: -0.2;
+        dir: alternate;
+        dur: 2000;
+        loop: true"
+      ></a-text>
+
+      <a-text id="music"
+        text="font: mozillavr; align: center; width: 4; color: black; value:Press on Gramophone for music, press again to stop"
+        position="0 0.8 -1.5"
+        scale="0.3 0.3 0.3"
+
+      ></a-text>
+
+      <a-gltf-model
+        src="#snowman"
+        position="-1 4 -3"
+        scale="2 2 2"
+        rotation="0 -90 0"
+      ></a-gltf-model>
+
+      <a-gltf-model
+        src="#santa"
+        position="0 -4.2 -3"
+        scale="4 4 4"
+      ></a-gltf-model>
+
+      <a-gltf-model
+        src="#presents"
+        position="0 1 -5"
+        scale="1 1 1"
+      ></a-gltf-model>
+
+      <a-gltf-model
+        src="#christmastree"
+        position="0 0 -10"
+        scale="0.04 0.04 0.04"
+      ></a-gltf-model>
+
+      <a-entity layout="type: circle; radius: 10; plane:xz"
+                position="0 3 -3"
+                scale="2 2 2"
+      >
+      <a-entity template="src: #circleforest"></a-entity>
+      <a-entity template="src: #circleforest"></a-entity>
+      <a-entity template="src: #circleforest"></a-entity>
+      <a-entity template="src: #circleforest"></a-entity>
+      <a-entity template="src: #circleforest"></a-entity>
+      <a-entity template="src: #circleforest"></a-entity>
+      <a-entity template="src: #circleforest"></a-entity>
+
+
+      </a-entity>
+
+      <a-plane
+        src="https://cdn.glitch.com/3bea33eb-bc48-4167-81d2-04a68b27c82a%2Fsnow_02_rough_1k.jpg?v=1605364776582"
+        displacement-map="#displacement"
+        displacement-bias="0"
+        displacement-scale="1"
+        displacement-texture-repeat="5 5"
+
+        normal-map="#normalmap"
+        normal-scale="1"
+        normal-texture-offset="1 1"
+        normal-texture-repeat="2 2"
+
+        repeat="10 10"
+        rotation="-90 0 0"
+        position="0 0 0"
+        height="300"
+        width="300"
+        scale="0.5 0.5 0.5"
+        segments-height="10"
+        segments-width="10"
+
+
+      ></a-plane>
+
+    <a-entity
+        id="sky"
+        geometry="primitive: sphere; radius: 1000"
+        material="color: #000; shader: flat; side: back"
+      ></a-entity>
+
+      <a-entity light="type: ambient; color: #444"></a-entity>
+      <a-assets>
+        <audio id="neigh" crossorigin="anonymous" src="xmas.mp3"></audio>
+      </a-assets>
+
+
+
+      <!--<a-box position = "0  0 -2" audiohandler >  -->
+        <!-- <a-box position="-1 1.6 -5" animation="property: position; to: 1 8 -10; dur: 2000; easing: linear; loop: true" color="tomato"></a-box>-->
+
+        <a-entity boom-ani obj-model="obj:#boombox-obj; mtl:#boombox-mtl" position="0 0.8 -2.5" scale="1 1 1" rotation="0 0 0" audiohandler>
+          <a-animation attribute="position"
+             from="0 3 -5"
+             to="0 0 -5"
+             dur="500"
+             begin="bounce-start"
+             end="bounce-stop"
+             fill="backwards"
+             easing="ease-in"
+             repeat="indefinite"></a-animation>
+        </a-entity>
+
+
+
+    </a-scene>
+  </body>
+</html>

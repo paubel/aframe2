@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <!-- https://aframe.io/aframe-school/#/7/1 -->
+  <head>
+    <title>ECS - A-Frame School</title>
+    <meta name="description" content="ECS - A-Frame School" />
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <!-- aframe-animation-component -->
+    <script src="https://unpkg.com/aframe-animation-component@%5E3.2.x/dist/aframe-animation-component.min.js"></script>
+    <!-- aframe-particle-system-component -->
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img
+          id="groundTexture"
+          src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png"
+        />
+      </a-assets>
+         <a-sky
+        src="https://cdn.glitch.com/3bea33eb-bc48-4167-81d2-04a68b27c82a%2Fstars.jpg?v=1605364057839"
+      ></a-sky>
+
+      <a-entity
+        particle-system="preset: snow; particleCount: 10000; size:2"
+      ></a-entity>
+
+      <a-entity
+        id="box"
+        geometry="primitive: box; width: 1; depth: 1; height: 1"
+        position="-1 0.5 -3"
+        material="color: #4CC3D9"
+      ></a-entity>
+      <a-entity
+        id="sphere"
+        geometry="primitive: sphere; radius: 1.25"
+        material="color: #EF2D5E"
+        position="0 1.25 -5"
+        animation="property: scale; dir: alternate; dur: 1000; to: 1.1 1.1 1.1; loop: true"
+      ></a-entity>
+      <a-entity
+        id="cylinder"
+        geometry="primitive: cylinder; radius: 0.5; height: 1.5"
+        position="1 0.75 -3"
+        material="color: #FFC65D"
+      ></a-entity>
+  <a-plane
+        src="https://cdn.glitch.com/7db2ea3e-c0b8-455a-830c-914805edc711%2Fmossy_rock_diff_1k.jpg?v=1604563406354"
+        rotation="-90 0 0"
+        height="100"
+        width="100"
+        scale="0.1 0.1 0.1"
+      ></a-plane>
+
+
+      <!--<a-entity
+        id="sky"
+        geometry="primitive: sphere; radius: 100"
+        material="color: #000; shader: flat; side: back"
+      ></a-entity>-->
+      <a-entity light="type: ambient; color: #444"></a-entity>
+      <a-entity
+        light="type: directional; color: #AAA"
+        position="-1 2 0"
+      ></a-entity>
+
+    </a-scene>
+  </body>
+</html>

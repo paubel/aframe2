@@ -3,7 +3,7 @@
   <head>
     <title>JavaScript - A-Frame School</title>
     <meta name="description" content="JavaScript - A-Frame School">
-    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script>
       AFRAME.registerComponent('school-playground', {
         /**
@@ -12,7 +12,7 @@
          */
         init: function () {
           // Add code here!
-          //console.log('Welcome, class!');
+          console.log('Welcome, class!');
           var sceneEl = document.querySelector('a-scene');
           function random_rgba() {
               var o = Math.round, r = Math.random, s = 255;
@@ -29,7 +29,7 @@
             var sphereEl = document.createElement('a-sphere');
             sphereEl.setAttribute('material', {color: random_rgba()});
             sphereEl.setAttribute('position', {x: Math.random() * 5 - 2, y: Math.random() * 5 - 2, z: Math.random() * 5 - 2});
-            sphereEl.setAttribute('geometry', {radius:Math.random()*.5-0.2});
+            sphereEl.setAttribute('geometry', {radius:Math.random()*.5 - 0.2});
             sceneEl.appendChild(sphereEl);
 
           }
