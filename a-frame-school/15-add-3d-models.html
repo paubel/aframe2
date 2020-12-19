@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>glTF Model - A-Frame School</title>
+    <meta name="description" content="glTF Model - A-Frame School">
+    <script src="https://rawgit.com/aframevr/aframe/b395ea0/dist/aframe-master.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.animation-mixer@3.4.0/dist/aframe-extras.animation-mixer.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="cityModel" src="https://cdn.aframe.io/test-models/models/virtualcity/VC.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-gltf-model src="#cityModel" animation-mixer></a-gltf-model>
+    </a-scene>
+  </body>
+</html>
